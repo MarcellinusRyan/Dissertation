@@ -1,0 +1,62 @@
+Sub Macro1()
+'
+' Macro1 Macro
+'
+
+'
+    Range("AA2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    Sheets("Rough - Base").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=True
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("Data - Base").Select
+    Range("A3").Select
+    Selection.Insert Shift:=xlDown
+    Sheets("Form - Base").Select
+    ActiveWindow.ScrollRow = 293
+    ActiveWindow.ScrollRow = 290
+    ActiveWindow.ScrollRow = 282
+    ActiveWindow.ScrollRow = 257
+    ActiveWindow.ScrollRow = 213
+    ActiveWindow.ScrollRow = 202
+    ActiveWindow.ScrollRow = 193
+    ActiveWindow.ScrollRow = 175
+    ActiveWindow.ScrollRow = 173
+    ActiveWindow.ScrollRow = 171
+    ActiveWindow.ScrollRow = 163
+    ActiveWindow.ScrollRow = 138
+    ActiveWindow.ScrollRow = 98
+    ActiveWindow.ScrollRow = 90
+    ActiveWindow.ScrollRow = 75
+    ActiveWindow.ScrollRow = 71
+    ActiveWindow.ScrollRow = 69
+    ActiveWindow.ScrollRow = 66
+    ActiveWindow.ScrollRow = 48
+    ActiveWindow.ScrollRow = 28
+    ActiveWindow.ScrollRow = 13
+    ActiveWindow.ScrollRow = 3
+    ActiveWindow.ScrollRow = 1
+    ActiveWindow.ScrollColumn = 21
+    ActiveWindow.ScrollColumn = 20
+    ActiveWindow.ScrollColumn = 17
+    ActiveWindow.ScrollColumn = 15
+    ActiveWindow.ScrollColumn = 12
+    ActiveWindow.ScrollColumn = 11
+    ActiveWindow.ScrollColumn = 10
+    ActiveWindow.ScrollColumn = 8
+    ActiveWindow.ScrollColumn = 5
+    ActiveWindow.ScrollColumn = 1
+    Union(Range( _
+        "H32:J32,G33,H33:J33,G37,H37:J37,G38,H38:J38,G39,H39:J39,G40,H40:J40,G41,H41:J41,G42,H42:J42,G46,H46:J46,G47,H47:J47,G48,H48:J48,G49,H49:J49,G50,H50:J50,G51,H51:J51,B3:J3,B5:J5,B7:J7,B9:J9,B11:J11" _
+        ), Range( _
+        "G15,H15:J15,G16,H16:J16,G17,H17:J17,G18,H19:J19,H18:J18,G19,G20,H20:J20,G21,H21:J21,G26,H26:J26,G27,H27:J27,G28,H28:J28,G29,H29:J29,G30,H30:J30,G31,H31:J31,G32" _
+        )).Select
+    Range("H51").Activate
+    Application.CutCopyMode = False
+    Selection.ClearContents
+    Range("B3:J3").Select
+End Sub
