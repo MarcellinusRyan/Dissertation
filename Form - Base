@@ -60,3 +60,4 @@ Sub Macro1()
     Selection.ClearContents
     Range("B3:J3").Select
 End Sub
+ 
