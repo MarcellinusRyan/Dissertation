@@ -1,0 +1,11 @@
+Tactical Data = GROUPBY('Duplicate Data - Base','Duplicate Data - Base'[ID],'Duplicate Data - Base'[Tactical Attribute],'Duplicate Data - Base'[Tactical Base Rating])
+
+Generated ID = 'Tactical Data'[ID]&"|"&'Tactical Data'[Tactical Attribute]
+
+Tactical Improvement Rate = 
+DIVIDE(
+    'Max Tactical Rating'[Max Tactical Rating Measure] - 'Tactical Data'[Tactical Base Rating Measure],
+    'Tactical Data'[Tactical Base Rating Measure]
+) 
+
+Tactical Base Rating Measure = SUM('Tactical Data'[Tactical Base Rating])
