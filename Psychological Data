@@ -1,0 +1,11 @@
+Psychological Data = GROUPBY('Duplicate Data - Base','Duplicate Data - Base'[ID],'Duplicate Data - Base'[Psychological Attribute],'Duplicate Data - Base'[Psychological Base Rating])
+
+Generated ID = 'Psychological Data'[ID]&"|"&'Psychological Data'[Psychological Attribute]
+
+Psychology Improvement Rate = 
+DIVIDE(
+    'Max Psychological Rating'[Max Psychological Rating Measure] - 'Psychological Data'[Psychological Base Rating Measure],
+    'Psychological Data'[Psychological Base Rating Measure]
+)
+
+Psychological Base Rating Measure = SUM('Psychological Data'[Psychological Base Rating])
