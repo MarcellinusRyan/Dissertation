@@ -1,0 +1,13 @@
+Max Psychological Rating = GROUPBY('Merged Table Psychological','Merged Table Psychological'[ID],'Merged Table Psychological'[Psychological Base Attribute],'Merged Table Psychological'[Max Psychological Rating])
+
+Generated ID = 'Max Psychological Rating'[ID]&"|"&'Max Psychological Rating'[Psychological Base Attribute]
+
+Average Max Psychological Rating = 
+AVERAGEX(
+    FILTER('Max Psychological Rating', 'Max Psychological Rating'[ID] = EARLIER('Max Psychological Rating'[ID])),
+    'Max Psychological Rating'[Max Psychological Rating]
+)
+
+Attribute = "Average Max Psychological Rating"
+
+Max Psychological Rating Measure = SUM('Max Psychological Rating'[Max Psychological Rating])
