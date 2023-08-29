@@ -1,0 +1,28 @@
+Development Table = 
+UNION(
+    SELECTCOLUMNS('Max Technical Rating', "ID", 'Max Technical Rating'[ID], "Attribute", 'Max Technical Rating'[Technical Base Attribute], "Max Rating", 'Max Technical Rating'[Max Technical Rating]),
+    SELECTCOLUMNS('Max Tactical Rating', "ID", 'Max Tactical Rating'[ID], "Attribute", 'Max Tactical Rating'[Tactical Base Attribute], "Max Rating", 'Max Tactical Rating'[Max Tactical Rating]),
+    SELECTCOLUMNS('Max Athletic Rating', "ID", 'Max Athletic Rating'[ID], "Attribute", 'Max Athletic Rating'[Athletic Base Attribute], "Max Rating", 'Max Athletic Rating'[Max Athletic Rating]),
+    SELECTCOLUMNS('Max Psychological Rating', "ID", 'Max Psychological Rating'[ID], "Attribute", 'Max Psychological Rating'[Psychological Base Attribute], "Max Rating", 'Max Psychological Rating'[Max Psychological Rating])
+)
+
+Base Rating = 
+VAR CurrentID = 'Development Table'[ID]
+VAR CurrentAttribute = 'Development Table'[Attribute]
+
+VAR TechnicalBaseRating = LOOKUPVALUE('Technical Data'[Technical Base Rating], 'Technical Data'[ID], CurrentID, 'Technical Data'[Technical Attribute], CurrentAttribute)
+VAR TacticalBaseRating = LOOKUPVALUE('Tactical Data'[Tactical Base Rating], 'Tactical Data'[ID], CurrentID, 'Tactical Data'[Tactical Attribute], CurrentAttribute)
+VAR AthleticBaseRating = LOOKUPVALUE('Athletic Data'[Athletic Base Rating], 'Athletic Data'[ID], CurrentID, 'Athletic Data'[Athletic Attribute], CurrentAttribute)
+VAR PsychologicalBaseRating = LOOKUPVALUE('Psychological Data'[Psychological Base Rating], 'Psychological Data'[ID], CurrentID, 'Psychological Data'[Psychological Attribute], CurrentAttribute)
+
+RETURN
+SWITCH(
+    TRUE(),
+    NOT ISBLANK(TechnicalBaseRating), TechnicalBaseRating,
+    NOT ISBLANK(TacticalBaseRating), TacticalBaseRating,
+    NOT ISBLANK(AthleticBaseRating), AthleticBaseRating,
+    NOT ISBLANK(PsychologicalBaseRating), PsychologicalBaseRating,
+    BLANK()
+)
+
+% Improvement = ('Development Table'[Improvement Rating] - 'Development Table'[Base Rating]) / 'Development Table'[Base Rating]
