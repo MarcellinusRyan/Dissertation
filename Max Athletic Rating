@@ -1,0 +1,11 @@
+Max Athletic Rating = GROUPBY('Merged Table Athletic','Merged Table Athletic'[ID],'Merged Table Athletic'[Athletic Base Attribute],'Merged Table Athletic'[Max Athletic Rating])
+
+Generated ID = 'Max Athletic Rating'[ID]&"|"&'Max Athletic Rating'[Athletic Base Attribute]
+
+Average Max Athletic Rating = 
+AVERAGEX(
+    FILTER('Max Athletic Rating', 'Max Athletic Rating'[ID] = EARLIER('Max Athletic Rating'[ID])),
+    'Max Athletic Rating'[Max Athletic Rating]
+)
+
+Attribute = "Average Max Athletic Rating"
