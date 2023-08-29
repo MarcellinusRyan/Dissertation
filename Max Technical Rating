@@ -1,0 +1,13 @@
+Max Technical Rating = GROUPBY('Merged Table Technical','Merged Table Technical'[ID],'Merged Table Technical'[Technical Base Attribute],'Merged Table Technical'[Max Technical Rating])
+
+Generated ID = 'Max Technical Rating'[ID]&"|"&'Max Technical Rating'[Technical Base Attribute]
+
+Average Max Technical Rating = 
+AVERAGEX(
+    FILTER('Max Technical Rating', 'Max Technical Rating'[ID] = EARLIER('Max Technical Rating'[ID])),
+    'Max Technical Rating'[Max Technical Rating]
+)
+
+Attribute = "Average Max Technical Rating"
+
+Max Technical Rating Measure = SUM('Max Technical Rating'[Max Technical Rating])
