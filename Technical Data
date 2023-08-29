@@ -1,0 +1,11 @@
+Technical Data = GROUPBY('Duplicate Data - Base','Duplicate Data - Base'[ID],'Duplicate Data - Base'[Technical Attribute],'Duplicate Data - Base'[Technical Base Rating])
+
+Generated ID = 'Technical Data'[ID]&"|"&'Technical Data'[Technical Attribute]
+
+Technical Improvement Rate = 
+DIVIDE(
+    'Max Technical Rating'[Max Technical Rating Measure] - 'Technical Data'[Technical Base Rating Measure],
+    'Technical Data'[Technical Base Rating Measure]
+)
+
+Technical Base Rating Measure = SUM('Technical Data'[Technical Base Rating])
