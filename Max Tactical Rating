@@ -1,0 +1,13 @@
+Max Tactical Rating = GROUPBY('Merged Table Tactical','Merged Table Tactical'[ID],'Merged Table Tactical'[Tactical Base Attribute],'Merged Table Tactical'[Max Tactical Rating])
+
+Generated ID = 'Max Tactical Rating'[ID]&"|"&'Max Tactical Rating'[Tactical Base Attribute]
+
+Average Max Tactical Rating = 
+AVERAGEX(
+    FILTER('Max Tactical Rating', 'Max Tactical Rating'[ID] = EARLIER('Max Tactical Rating'[ID])),
+    'Max Tactical Rating'[Max Tactical Rating]
+)
+
+Attribute = "Average Max Tactical Rating"
+
+Max Tactical Rating Measure = SUM('Max Tactical Rating'[Max Tactical Rating])
