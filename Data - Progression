@@ -19,3 +19,4 @@ let
     #"Removed Columns3" = Table.RemoveColumns(#"Renamed Columns3",{"Attribute3", "Attribute4"})
 in
     #"Removed Columns3"
+ 
