@@ -63,4 +63,4 @@ Sub Macro1()
     Application.CutCopyMode = False
     Selection.ClearContents
     Range("B3:J3").Select
-End Sub
+End Sub 
