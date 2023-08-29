@@ -11,3 +11,4 @@ AVERAGEX(
 Attribute = "Average Max Athletic Rating"
 
 Max Athletic Rating Measure = SUM('Max Athletic Rating'[Max Athletic Rating])
+
