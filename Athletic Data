@@ -1,0 +1,6 @@
+Athletic Data = GROUPBY('Duplicate Data - Base','Duplicate Data - Base'[ID],'Duplicate Data - Base'[Athletic Attribute],'Duplicate Data - Base'[Athletic Base Rating])
+Athletic Improvement Rate = 
+DIVIDE(
+    'Max Athletic Rating'[Max Athletic Rating Measure] - 'Athletic Data'[Athletic Base Rating Measure],
+    'Athletic Data'[Athletic Base Rating Measure]
+)
