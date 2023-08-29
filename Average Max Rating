@@ -1,0 +1,7 @@
+Average Max Rating = 
+UNION(
+    SELECTCOLUMNS('Max Technical Rating', "ID", 'Max Technical Rating'[ID], "Attribute", 'Max Technical Rating'[Attribute], "Avg Max Technical Rating", 'Max Technical Rating'[Average Max Technical Rating]),
+    SELECTCOLUMNS('Max Tactical Rating', "ID", 'Max Tactical Rating'[ID], "Attribute", 'Max Tactical Rating'[Attribute], "Avg Max Tactical Rating", 'Max Tactical Rating'[Average Max Tactical Rating]),
+    SELECTCOLUMNS('Max Athletic Rating', "ID", 'Max Athletic Rating'[ID], "Attribute", 'Max Athletic Rating'[Attribute], "Avg Max Athletic Rating", 'Max Athletic Rating'[Average Max Athletic Rating]),
+    SELECTCOLUMNS('Max Psychological Rating', "ID", 'Max Psychological Rating'[ID], "Attribute", 'Max Psychological Rating'[Attribute], "Avg Max Psychological Rating", 'Max Psychological Rating'[Average Max Psychological Rating])
+)
